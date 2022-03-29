@@ -1,5 +1,6 @@
 /* reset css */
-@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&family=Poppins:wght@100;200;300&display=swap');
 html{
     font-size: 62.5%;
     scroll-behavior: smooth;
@@ -7,16 +8,19 @@ html{
     
 }
 body{
-    font: 1.6rem sans-serif;
+    font: 1.6rem 'Poppins',sans-serif;
     margin: 0;
     line-height: 1.6;
     text-rendering:optimizeLegibility;
     
 }
-h1,h2,h3{
-    font-family: 'Comic Neue', cursive;
-    font-weight: 400;
+h1,h2,h3,ol{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
     text-transform: capitalize;
+}
+h1,h2{
+    font-family: 'Patua One', cursive;
 }
 h1,h2,h3,h4,p,ul,ol, figure{
     margin: 0;
@@ -50,4 +54,94 @@ header,nav,main,footer{
     max-width: 120rem;
     margin: 0 auto;
     background-color: rgba(255,255,255,.8);
+    padding: 1rem;
+}
+header h1::before, section h2::before, nav h2::before{
+    content: url(../favicons/favicon-32x32.png);
+    vertical-align: top;
+    filter:invert(100%);
+    margin-right: .5rem;
+    
+}
+nav .main-menu{
+    margin-top: 2rem;
+}
+nav .main-menu li{
+    display: inline-block;
+    width: calc(100% / 3 );
+}
+nav .main-menu li:not(li:last-child){
+    border-right: solid .1rem #222;
+}
+nav .main-menu li a{
+    display: block;
+    width: 100%;
+    text-align: center;
+    line-height: 4.5rem;
+    transition: all .6s ease-in-out;
+}
+nav .main-menu li:hover a{
+    background-color: rgb(170, 161, 161);
+    
+}
+section h2::before, nav h2::before{
+    vertical-align: -.6rem;
+    margin-right: .5rem;
+}
+header h1, section h2, nav h2{
+    position: sticky;
+    top: 0;
+    font-size: 5rem;
+    color: var(--color-secondary);
+    text-shadow: -.2rem .2rem 0 var(--color-primary);
+}
+header h1{
+    text-align: center;
+}
+section h2, nav h2{
+    font-size: 3rem;
+    background-color: var(--color-header);
+    padding: 1rem;
+    box-shadow: 0 .4rem 0 var(--color-secondary);
+}
+section p, nav ol{
+    padding: 1rem 0;
+}
+footer p{
+    text-align: center;
+    text-transform: capitalize;
+}
+/* responsive */
+@media screen and (max-width: 100.0rem){
+    section p{
+        text-align: justify;
+    }
+    nav .main-menu li{
+        display: block;
+        width: auto;
+    }
+    nav .main-menu li:not(li:last-child){
+        border-right: 0;
+    }
+    nav .main-menu li a{
+        text-align: left;
+        color: #fff;
+
+    }
+    nav .main-menu li{
+        background-color: var(--color-primary);
+        padding: .5rem;
+        margin-bottom: .1rem;
+    }
+    header h1{
+        text-shadow: none;
+    }
+    header h1::before,section h2:before, nav h2:before{
+        content: '';
+    }
+    section h2, nav h2{
+        padding: 0 0 0 .1rem;
+        font-size: 2.5rem;
+        text-shadow: none;
+    }
 }
